@@ -3,6 +3,18 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
+
+        task1();
+        task2();
+        task3();
+        task4();
+        task5();
+        task6();
+
+    }
+
+    public static void task1() {
+
         //First task
         /*
         Создайте массив из 12 случайных целых чисел из отрезка [-15;15].
@@ -12,23 +24,27 @@ public class Main {
 
         System.out.println("Задание 1:");
 
-        int[] arr1 = createRandomArray(12, -15, 15);
-        System.out.println("Массив: " + Arrays.toString(arr1));
+        int[] arr = createRandomArray(12, -15, 15);
+        System.out.println("Массив: " + Arrays.toString(arr));
 
         int[] arrS = new int[12];
-        System.arraycopy(arr1, 0, arrS, 0, 12);
+        System.arraycopy(arr, 0, arrS, 0, 12);
         Arrays.sort(arrS);
 
         int toFind = arrS[arrS.length - 1];
 
-        int pos = find(toFind, arr1);
+        int pos = find(toFind, arr);
 
         if (pos == -1)
             System.out.println("Error");
         else
-            System.out.println("Позиция наибольшего числа в массиве: " + (pos + 1) + "\nСамо число: " + arr1[pos]);
+            System.out.println("Позиция наибольшего числа в массиве: " + (pos + 1) + "\nСамо число: " + arr[pos]);
 
         System.out.println(System.lineSeparator());
+
+    }
+
+    public static void task2() {
 
         //Second task
         /*
@@ -40,13 +56,13 @@ public class Main {
 
         System.out.println("Задание 2:");
 
-        int[] arr2 = createRandomArray(11, 0, 1);
-        System.out.println("Массив: " + Arrays.toString(arr2));
+        int[] arr = createRandomArray(11, 0, 1);
+        System.out.println("Массив: " + Arrays.toString(arr));
 
         int count0 = 0;
         int count1 = 0;
 
-        for (int i : arr2) {
+        for (int i : arr) {
             if (i == 0)
                 count0++;
             if (i == 1)
@@ -62,6 +78,9 @@ public class Main {
 
         System.out.println(System.lineSeparator());
 
+    }
+
+    public static void task3() {
         //Third task
         /*
         Напишите программу, которая генерирует
@@ -71,16 +90,18 @@ public class Main {
 
         System.out.println("Задание 3:");
 
-        int[][] matrix3 = new int[8][];
-        for (int i = 0; i < matrix3.length; i++) {
-            matrix3[i] = createRandomArray(5, 10, 99);
+        int[][] matrix = new int[8][];
+        for (int i = 0; i < matrix.length; i++) {
+            matrix[i] = createRandomArray(5, 10, 99);
         }
-        for (int[] line : matrix3) {
+        for (int[] line : matrix) {
             System.out.println(Arrays.toString(line));
         }
 
         System.out.println(System.lineSeparator());
+    }
 
+    public static void task4() {
         //Fourth task
         /*
        Напишите программу, которая генерирует двумерный массив из 5 строк по 8 столбцов
@@ -90,16 +111,16 @@ public class Main {
 
         System.out.println("Задание 5:");
 
-        int[][] matrix4 = new int[5][];
-        for (int i = 0; i < matrix4.length; i++) {
-            matrix4[i] = createRandomArray(8, -99, 99);
+        int[][] matrix = new int[5][];
+        for (int i = 0; i < matrix.length; i++) {
+            matrix[i] = createRandomArray(8, -99, 99);
         }
 
-        printIntMatrix(matrix4);
+        printIntMatrix(matrix);
 
-        int maxValue = matrix4[0][0];
+        int maxValue = matrix[0][0];
 
-        for (int[] i : matrix4)
+        for (int[] i : matrix)
             for (int j : i) {
                 maxValue = Math.max(maxValue, j);
             }
@@ -108,7 +129,9 @@ public class Main {
 
 
         System.out.println(System.lineSeparator());
+    }
 
+    public static void task5() {
         //Fifth task
         /*
        Напишите программу, которая генерирует массив из 7 строк по 4 столбца в каждой
@@ -118,21 +141,21 @@ public class Main {
 
         System.out.println("Задание 5:");
 
-        int[][] matrix5 = new int[7][];
+        int[][] matrix = new int[7][];
 
-        for (int i = 0; i < matrix5.length; i++) {
-            matrix5[i] = createRandomArray(4, -5, 5);
+        for (int i = 0; i < matrix.length; i++) {
+            matrix[i] = createRandomArray(4, -5, 5);
         }
 
-        printIntMatrix(matrix5);
+        printIntMatrix(matrix);
 
 
         int matrixLineMax = Integer.MIN_VALUE;
         int maxLineIndex = 0;
 
-        for (int i = 0; i < matrix5.length; i++) {
-            if (matrixLineSum(matrix5[i]) > matrixLineMax) {
-                matrixLineMax = matrixLineSum(matrix5[i]);
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrixLineSum(matrix[i]) > matrixLineMax) {
+                matrixLineMax = matrixLineSum(matrix[i]);
                 maxLineIndex = i;
             }
             // System.out.println(matrixLineSum(matrix5[i]) + " " + (matrixLineMax) + " " + (maxLineIndex));
@@ -140,6 +163,9 @@ public class Main {
 
         System.out.println("Индекс макс по произведению строки: " + maxLineIndex);
         System.out.println(System.lineSeparator());
+    }
+
+    public static void task6() {
 
         //Sixth task
         /*
@@ -155,27 +181,25 @@ public class Main {
 
         System.out.println("Задание 6:");
 
-        int[][] matrix6 = new int[6][];
+        int[][] matrix = new int[6][];
 
-        for (int i = 0; i < matrix6.length; i++) {
-            matrix6[i] = createRandomArray(7, 0, 9);
+        for (int i = 0; i < matrix.length; i++) {
+            matrix[i] = createRandomArray(7, 0, 9);
         }
 
-        printIntMatrix(matrix6);
+        printIntMatrix(matrix);
 
         System.out.println(System.lineSeparator());
 
 
-        for (int[] i : matrix6)
-        {
+        for (int[] i : matrix) {
             Arrays.sort(i);
             reverseArray(i);
         }
 
-        printIntMatrix(matrix6);
-
-
+        printIntMatrix(matrix);
     }
+
 
     public static int[] createRandomArray(int n, int min, int max) {
         Random rd = new Random();
